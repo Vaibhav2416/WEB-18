@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+        <form id="rahasya">
+            <input id="mail" type="email" placeholder="Enter Email Id">
+         
+            <input id="pw" type="text" placeholder=" Enter Password">
+            <input type="submit">
+        </form>
+</body>
+</html>
+<script>
+    document.querySelector("#rahasya").addEventListener("submit",myele)
+    var opo=JSON.parse(localStorage.getItem("Information")) 
+   function myele() { 
+       event.preventDefault();
+        var peta={
+         put: document.querySelector("#mail").value,
+         pwd: document.querySelector("#pw").value
+        }
+        signin(peta,opo)      
+}
+function signin(peta,opo) {
+      
+
+     if (opo== null){
+         alert("User Doesn't Exist. Please signup")
+     }else if(opo.email != peta.put || opo.password != peta.pwd){
+         alert("Please Enter Valid Email ID or Password");
+     }else{
+         alert("Sign in Successful. Please Continue with your shopping");
+         localStorage.setItem("signin", JSON.stringify(opo));
+        // window.location.href="./index.html";
+     }
+   
+    }
+     
+
+    
+
+
+</script>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     #main{
+         display: flex;
+         flex-direction: column;
+         width: 40%;
+         gap: 40px;
+         margin: auto;
+     }
+    </style>
+</head>
+<body>
+    <div id="container">
+    <form action="" id="main">
+        <input id="mail" type="email" placeholder="Enter Email Id">
+        <input id="mob" type="number" placeholder="Enter Mobile Number">
+        <input id="pw" type="text" placeholder=" Enter Password">
+        <input type="submit">
+    </form>
+</div>
+</body>
+</html>
+<script>
+   var sign=document.querySelector("form")
+   sign.addEventListener("submit",mycora)
+   var signup=JSON.parse(localStorage.getItem("Information"))
+
+
+   function mycora(){
+       event.preventDefault();
+       var firstobj={
+         email:main.mail.value,
+         number:main.mob.value,
+         password:main.pw.value,
+       }
+       if(signup != null && signup === firstobj.email)
+       {
+           alert("Already exists")
+           return
+       }
+       
+       localStorage.setItem("Information",JSON.stringify(firstobj))
+       alert("signup success")  
+       window.location.href="login.html"
+   }
+   console.log(signup)
+</script>
